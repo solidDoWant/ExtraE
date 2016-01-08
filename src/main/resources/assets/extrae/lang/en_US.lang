@@ -1,0 +1,16 @@
+tile.ee_collector_MK4.name=Energy Collector MK4
+tile.ee_collector_MK5.name=Energy Collector MK5
+tile.ee_collector_MK6.name=Energy Collector MK6
+
+tile.ee_relay_MK4.name=Anti-Matter Relay MK4
+tile.ee_relay_MK5.name=Anti-Matter Relay MK5
+tile.ee_relay_MK6.name=Anti-Matter Relay MK6
+
+ee.relay.mk4=Relay MKIV
+ee.relay.mk5=Relay MKV
+ee.relay.mk6=Relay MKVI
+
+itemGroup.extrae=ExtraE
+
+achievement.super_collector=Even more OP
+achievement.super_collector.desc=Let's get generating!
