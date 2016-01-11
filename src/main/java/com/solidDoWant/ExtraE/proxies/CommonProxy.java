@@ -31,10 +31,7 @@ public abstract class CommonProxy {
 		NetworkRegistry.INSTANCE.registerGuiHandler(ExtraECore.instance, new GuiHandler());
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public void registerClientOnlyEvents(){
-		MinecraftForge.EVENT_BUS.register(new ToolTipEvent());
-	}
+	public abstract void registerClientOnlyEvents();
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event)

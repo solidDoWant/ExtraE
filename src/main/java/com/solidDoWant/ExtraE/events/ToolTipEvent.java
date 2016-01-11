@@ -6,7 +6,6 @@ import com.solidDoWant.ExtraE.utils.Constants;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import moze_intel.projecte.api.item.IItemEmc;
 import moze_intel.projecte.config.ProjectEConfig;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -100,38 +99,6 @@ public class ToolTipEvent
 				event.toolTip.add(EnumChatFormatting.DARK_PURPLE
 						+ String.format(StatCollector.translateToLocal("pe.emc.maxstorage_tooltip")
 						+ EnumChatFormatting.BLUE + " %d " + unit, Constants.RELAY_MK6_MAX));
-			}
-		}
-		
-		if (current.hasTagCompound())
-		{
-			if (current.stackTagCompound.getBoolean("ProjectEBlock"))
-			{
-				event.toolTip.add(EnumChatFormatting.GREEN + StatCollector.translateToLocal("pe.misc.wrenched_block"));
-				
-				if (current.stackTagCompound.getDouble("EMC") > 0)
-				{
-					event.toolTip.add(EnumChatFormatting.YELLOW + String.format(
-							StatCollector.translateToLocal("pe.emc.storedemc_tooltip") + " " + EnumChatFormatting.RESET + "%,d", (int) current.stackTagCompound.getDouble("EMC")));
-				}
-			}
-			if (current.getItem() instanceof IItemEmc || current.stackTagCompound.hasKey("StoredEMC"))
-			{
-				double value = 0;
-				if (current.stackTagCompound.hasKey("StoredEMC"))
-				{
-					value = current.stackTagCompound.getDouble("StoredEMC");
-				} else
-				{
-					value = ((IItemEmc) current.getItem()).getStoredEmc(current);
-				}
-
-				event.toolTip.add(EnumChatFormatting.YELLOW + StatCollector.translateToLocal("pe.emc.storedemc_tooltip") + " " + EnumChatFormatting.RESET + moze_intel.projecte.utils.Constants.EMC_FORMATTER.format(value));
-			}
-
-			if (current.stackTagCompound.hasKey("StoredXP"))
-			{
-				event.toolTip.add(String.format(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocal("pe.misc.storedxp_tooltip") + " " + EnumChatFormatting.GREEN + "%,d", current.stackTagCompound.getInteger("StoredXP")));
 			}
 		}
 	}
