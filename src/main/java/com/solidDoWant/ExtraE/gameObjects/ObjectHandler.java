@@ -1,14 +1,8 @@
 package com.solidDoWant.ExtraE.gameObjects;
 
 import com.solidDoWant.ExtraE.config.ExtraEConfig;
-import com.solidDoWant.ExtraE.gameObjects.blocks.Collector;
-import com.solidDoWant.ExtraE.gameObjects.blocks.Relay;
-import com.solidDoWant.ExtraE.gameObjects.tiles.CollectorMK4Tile;
-import com.solidDoWant.ExtraE.gameObjects.tiles.CollectorMK5Tile;
-import com.solidDoWant.ExtraE.gameObjects.tiles.CollectorMK6Tile;
-import com.solidDoWant.ExtraE.gameObjects.tiles.RelayMK4Tile;
-import com.solidDoWant.ExtraE.gameObjects.tiles.RelayMK5Tile;
-import com.solidDoWant.ExtraE.gameObjects.tiles.RelayMK6Tile;
+import com.solidDoWant.ExtraE.gameObjects.blocks.*;
+import com.solidDoWant.ExtraE.gameObjects.tiles.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import moze_intel.projecte.gameObjs.ObjHandler;
@@ -16,6 +10,7 @@ import moze_intel.projecte.gameObjs.items.itemBlocks.ItemCollectorBlock;
 import moze_intel.projecte.gameObjs.items.itemBlocks.ItemRelayBlock;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 public class ObjectHandler {
@@ -28,6 +23,8 @@ public class ObjectHandler {
 	public static Block relayMK4Block = new Relay(4);
 	public static Block relayMK5Block = new Relay(5);
 	public static Block relayMK6Block = new Relay(6);
+	
+	public static Block EMCEngineBlock = new EMCEngine();
 	
 	public static void register()
 	{
@@ -47,6 +44,10 @@ public class ObjectHandler {
 		GameRegistry.registerTileEntityWithAlternatives(RelayMK4Tile.class, "RelayMK4Tile", "Relay MK4 Tile");
 		GameRegistry.registerTileEntityWithAlternatives(RelayMK5Tile.class, "RelayMK5Tile", "Relay MK5 Tile");
 		GameRegistry.registerTileEntityWithAlternatives(RelayMK6Tile.class, "RelayMK6Tile", "Relay MK6 Tile");
+		
+		GameRegistry.registerBlock(EMCEngineBlock, ItemBlock.class, "emcengine");
+		
+		GameRegistry.registerTileEntityWithAlternatives(EngineEMCTile.class, "EngineEMCTile", "EMC Engine Tile");
 	}
 
 	public static void addRecipes() {
