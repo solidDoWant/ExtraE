@@ -25,4 +25,8 @@ public class Constants {
 	public static final int RELAY5_GUI = 4;
 	public static final int RELAY6_GUI = 5;
 	
+	public static final int EMCENGINE_GUI = 6;
+	public static final int RFCOLLECTOR_GUI = 7;
+	
+	public static final int EMCENGINE_PACKET_ID = 0;
 }

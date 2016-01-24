@@ -2,7 +2,7 @@ package com.solidDoWant.ExtraE.gameObjects.blocks;
 
 import com.solidDoWant.ExtraE.ExtraECore;
 import com.solidDoWant.ExtraE.gameObjects.ObjectHandler;
-import com.solidDoWant.ExtraE.gameObjects.tiles.EMCEngineTile;
+import com.solidDoWant.ExtraE.gameObjects.tiles.RFCollectorTile;
 import com.solidDoWant.ExtraE.utils.Constants;
 
 import cpw.mods.fml.relauncher.Side;
@@ -15,11 +15,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class EMCEngine extends Block{
-
-	public EMCEngine() {
+public class RFCollector extends Block{
+	public RFCollector() {
 		super(Material.rock);
-		this.setBlockName("ee_emc_engine");
+		this.setBlockName("ee_rf_collector");
 		this.setLightLevel(Constants.COLLECTOR_LIGHT_VALS);
 		this.setHardness(10.0f);
 		this.setCreativeTab(ObjectHandler.tab);
@@ -34,23 +33,24 @@ public class EMCEngine extends Block{
 	@Override
 	public TileEntity createTileEntity(World world, int meta)
 	{
-		return new EMCEngineTile();
+		return new RFCollectorTile();
 	}
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
 		if (!world.isRemote){
-			player.openGui(ExtraECore.instance, Constants.EMCENGINE_GUI, world, x, y, z);
+			player.openGui(ExtraECore.instance, Constants.RFCOLLECTOR_GUI, world, x, y, z);
 		}
 		return true;
 	}
+	
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		this.blockIcon = register.registerIcon("extrae:emcengine/default");
+		this.blockIcon = register.registerIcon("extrae:rfcollector/default");
 	}
 	
 	@Override

@@ -1,13 +1,19 @@
 package com.solidDoWant.ExtraE.utils;
 
 import cpw.mods.fml.common.network.IGuiHandler;
+
+import com.solidDoWant.ExtraE.gameObjects.container.BasicInventoryContainer;
 import com.solidDoWant.ExtraE.gameObjects.container.CollectorMK4Container;
 import com.solidDoWant.ExtraE.gameObjects.container.RelayMK4Container;
 import com.solidDoWant.ExtraE.gameObjects.gui.GUICollectorMK4;
+import com.solidDoWant.ExtraE.gameObjects.gui.GUIEMCEngine;
+import com.solidDoWant.ExtraE.gameObjects.gui.GUIRFCollector;
 import com.solidDoWant.ExtraE.gameObjects.gui.GUIRelayMK4;
 import com.solidDoWant.ExtraE.gameObjects.tiles.CollectorMK4Tile;
 import com.solidDoWant.ExtraE.gameObjects.tiles.CollectorMK5Tile;
 import com.solidDoWant.ExtraE.gameObjects.tiles.CollectorMK6Tile;
+import com.solidDoWant.ExtraE.gameObjects.tiles.EMCEngineTile;
+import com.solidDoWant.ExtraE.gameObjects.tiles.RFCollectorTile;
 import com.solidDoWant.ExtraE.gameObjects.tiles.RelayMK4Tile;
 import com.solidDoWant.ExtraE.gameObjects.tiles.RelayMK5Tile;
 import com.solidDoWant.ExtraE.gameObjects.tiles.RelayMK6Tile;
@@ -49,6 +55,14 @@ public class GuiHandler implements IGuiHandler{
 				if (tile != null && tile instanceof RelayMK6Tile)
 					return new RelayMK4Container(player.inventory, (RelayMK6Tile) tile);
 				break;
+			case Constants.EMCENGINE_GUI:
+				if (tile != null && tile instanceof EMCEngineTile)
+					return new BasicInventoryContainer(player.inventory);
+				break;
+			case Constants.RFCOLLECTOR_GUI:
+				if (tile != null && tile instanceof RFCollectorTile)
+					return new BasicInventoryContainer(player.inventory);
+				break;
 		}
 		
 		return null;
@@ -85,7 +99,14 @@ public class GuiHandler implements IGuiHandler{
 				if (tile != null && tile instanceof RelayMK6Tile)
 					return new GUIRelayMK4(new RelayMK4Container(player.inventory, (RelayMK6Tile) tile), (RelayMK6Tile) tile);
 				break;
-
+			case Constants.EMCENGINE_GUI:
+				if (tile != null && tile instanceof EMCEngineTile)
+					return new GUIEMCEngine(new BasicInventoryContainer(player.inventory), (EMCEngineTile) tile);
+				break;
+			case Constants.RFCOLLECTOR_GUI:
+				if (tile != null && tile instanceof RFCollectorTile)
+					return new GUIRFCollector(new BasicInventoryContainer(player.inventory), (RFCollectorTile) tile);
+				break;
 		}
 		
 		return null;

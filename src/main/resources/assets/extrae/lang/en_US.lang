@@ -6,6 +6,9 @@ tile.ee_relay_MK4.name=Anti-Matter Relay MK4
 tile.ee_relay_MK5.name=Anti-Matter Relay MK5
 tile.ee_relay_MK6.name=Anti-Matter Relay MK6
 
+tile.ee_emc_engine.name=EMC Engine
+tile.ee_rf_collector.name=RF Collector
+
 ee.relay.mk4=Relay MKIV
 ee.relay.mk5=Relay MKV
 ee.relay.mk6=Relay MKVI

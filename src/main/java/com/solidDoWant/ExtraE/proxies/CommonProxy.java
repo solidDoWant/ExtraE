@@ -5,6 +5,7 @@ import java.io.File;
 import com.solidDoWant.ExtraE.ExtraECore;
 import com.solidDoWant.ExtraE.config.ExtraEConfig;
 import com.solidDoWant.ExtraE.gameObjects.ObjectHandler;
+import com.solidDoWant.ExtraE.network.PacketHandler;
 import com.solidDoWant.ExtraE.utils.AchievementHandler;
 import com.solidDoWant.ExtraE.utils.GuiHandler;
 
@@ -25,6 +26,8 @@ public abstract class CommonProxy {
 		registerClientOnlyEvents();
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(ExtraECore.instance, new GuiHandler());
+		
+		PacketHandler.registerPackets();
 	}
 	
 	public abstract void registerClientOnlyEvents();

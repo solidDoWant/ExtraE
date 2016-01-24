@@ -10,6 +10,8 @@ import moze_intel.projecte.gameObjs.items.itemBlocks.ItemCollectorBlock;
 import moze_intel.projecte.gameObjs.items.itemBlocks.ItemRelayBlock;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
@@ -25,6 +27,7 @@ public class ObjectHandler {
 	public static Block relayMK6Block = new Relay(6);
 	
 	public static Block EMCEngineBlock = new EMCEngine();
+	public static Block RFCollectorBlock = new RFCollector();
 	
 	public static void register()
 	{
@@ -46,8 +49,10 @@ public class ObjectHandler {
 		GameRegistry.registerTileEntityWithAlternatives(RelayMK6Tile.class, "RelayMK6Tile", "Relay MK6 Tile");
 		
 		GameRegistry.registerBlock(EMCEngineBlock, ItemBlock.class, "emcengine");
+		GameRegistry.registerBlock(RFCollectorBlock, ItemBlock.class, "rfcollector");
 		
-		GameRegistry.registerTileEntityWithAlternatives(EngineEMCTile.class, "EngineEMCTile", "EMC Engine Tile");
+		GameRegistry.registerTileEntityWithAlternatives(EMCEngineTile.class, "EngineEMCTile", "EMC Engine Tile");
+		GameRegistry.registerTileEntityWithAlternatives(RFCollectorTile.class, "CollectorRFTile", "RF Collector Tile");
 	}
 
 	public static void addRecipes() {
@@ -86,5 +91,15 @@ public class ObjectHandler {
 		{
 			GameRegistry.addShapelessRecipe(relayMK6Stack, relayMK5Stack, relayMK5Stack, relayMK5Stack, relayMK5Stack, relayMK5Stack, relayMK5Stack, relayMK5Stack, relayMK5Stack, relayMK5Stack);
 		}	
+		
+		//EMC Engine
+		if(ExtraEConfig.enableEMCEngine){
+			GameRegistry.addRecipe(new ItemStack(EMCEngineBlock), new Object[] {"RGR", "GCG", "RGR", 'R', Items.redstone, 'G', Blocks.glowstone, 'C', ObjectHandler.collectorMK5Block});
+		}
+		
+		//RF Collector
+		if(ExtraEConfig.enableRFCollector){
+			GameRegistry.addRecipe(new ItemStack(RFCollectorBlock), new Object[] {"GRG", "RCR", "GRG", 'R', Items.redstone, 'G', Items.glowstone_dust, 'C', ObjectHandler.collectorMK5Block});
+		}
 	}
 }
